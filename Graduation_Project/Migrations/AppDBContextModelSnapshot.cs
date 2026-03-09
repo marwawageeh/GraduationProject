@@ -33,12 +33,32 @@ namespace Graduation_Project.Migrations
                     b.Property<DateTime>("BookingDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<TimeSpan>("BookingTime")
+                        .HasColumnType("time");
+
+                    b.Property<string>("BookingTypes")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("DoctorId")
                         .HasColumnType("int");
 
                     b.Property<string>("Notes")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PatientEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PatientName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PatientPhone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PaymentIntentId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -85,6 +105,48 @@ namespace Graduation_Project.Migrations
                     b.ToTable("ChatHistory");
                 });
 
+            modelBuilder.Entity("Graduation_Project.Models.DeliveryAddress", b =>
+                {
+                    b.Property<int>("DeliveryAddressId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DeliveryAddressId"));
+
+                    b.Property<string>("Apartment")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RentalId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("StreetAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("DeliveryAddressId");
+
+                    b.HasIndex("RentalId")
+                        .IsUnique();
+
+                    b.ToTable("DeliveryAddresses");
+                });
+
             modelBuilder.Entity("Graduation_Project.Models.Department", b =>
                 {
                     b.Property<int>("DepartmentId")
@@ -115,11 +177,20 @@ namespace Graduation_Project.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DoctorId"));
 
+                    b.Property<decimal>("ConsultationPrice")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<int>("DepartmentId")
                         .HasColumnType("int");
 
+                    b.Property<TimeSpan>("EndTime")
+                        .HasColumnType("time");
+
                     b.Property<int>("ExperienceYears")
                         .HasColumnType("int");
+
+                    b.Property<string>("ImageURL")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -132,9 +203,17 @@ namespace Graduation_Project.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<TimeSpan>("StartTime")
+                        .HasColumnType("time");
+
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("DoctorId");
 
                     b.HasIndex("DepartmentId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Doctors");
                 });
@@ -155,18 +234,25 @@ namespace Graduation_Project.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImageUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsUnderMaintenance")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("OwnerId")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("PricePerDay")
                         .HasPrecision(18, 2)
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("EquipmentId");
+
+                    b.HasIndex("OwnerId");
 
                     b.ToTable("Equipments");
                 });
@@ -190,6 +276,9 @@ namespace Graduation_Project.Migrations
                     b.Property<DateTime>("End_Time")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<double>("Latitude")
                         .HasColumnType("float");
 
@@ -200,8 +289,11 @@ namespace Graduation_Project.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Rating")
-                        .HasColumnType("float");
+                    b.Property<int?>("PhoneNumber")
+                        .HasColumnType("int");
+
+                    b.Property<decimal?>("ReservationPrice")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("Start_Time")
                         .HasColumnType("datetime2");
@@ -209,6 +301,54 @@ namespace Graduation_Project.Migrations
                     b.HasKey("HospitalId");
 
                     b.ToTable("Hospitals");
+                });
+
+            modelBuilder.Entity("Graduation_Project.Models.HospitalEquipment", b =>
+                {
+                    b.Property<int>("HospitalEquipmentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("HospitalEquipmentId"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("HospitalEquipmentId");
+
+                    b.ToTable("HospitalEquipment");
+                });
+
+            modelBuilder.Entity("Graduation_Project.Models.HospitalReview", b =>
+                {
+                    b.Property<int>("HospitalReviewId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("HospitalReviewId"));
+
+                    b.Property<string>("Comment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("HospitalId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("HospitalReviewId");
+
+                    b.HasIndex("HospitalId");
+
+                    b.ToTable("HospitalReviews");
                 });
 
             modelBuilder.Entity("Graduation_Project.Models.Notification", b =>
@@ -241,6 +381,54 @@ namespace Graduation_Project.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Notification");
+                });
+
+            modelBuilder.Entity("Graduation_Project.Models.NotificationSettings", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("AppointmentReminders")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("EquipmentRentalAlerts")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("NotificationSettings");
+                });
+
+            modelBuilder.Entity("Graduation_Project.Models.PasswordResetCode", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ExpireAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PasswordResetCodes");
                 });
 
             modelBuilder.Entity("Graduation_Project.Models.Payment", b =>
@@ -285,6 +473,42 @@ namespace Graduation_Project.Migrations
                     b.ToTable("Payment");
                 });
 
+            modelBuilder.Entity("Graduation_Project.Models.PendingUser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ExpireAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PendingUsers");
+                });
+
             modelBuilder.Entity("Graduation_Project.Models.Rental", b =>
                 {
                     b.Property<int>("RentalId")
@@ -296,8 +520,17 @@ namespace Graduation_Project.Migrations
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("EndingSoonNotified")
+                        .HasColumnType("bit");
+
                     b.Property<int>("EquipmentId")
                         .HasColumnType("int");
+
+                    b.Property<string>("PaymentIntentId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("PickupRequestedAt")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
@@ -322,6 +555,38 @@ namespace Graduation_Project.Migrations
                     b.ToTable("Rental");
                 });
 
+            modelBuilder.Entity("Graduation_Project.Models.Review", b =>
+                {
+                    b.Property<int>("ReviewId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReviewId"));
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("EquipmentId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ReviewId");
+
+                    b.HasIndex("EquipmentId");
+
+                    b.ToTable("Reviews");
+                });
+
             modelBuilder.Entity("Graduation_Project.Models.User", b =>
                 {
                     b.Property<int>("UserId")
@@ -330,9 +595,21 @@ namespace Graduation_Project.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
 
+                    b.Property<DateTime?>("DateOfBirth")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Gender")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsBlocked")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");
@@ -346,7 +623,6 @@ namespace Graduation_Project.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Phone")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Role")
@@ -355,6 +631,21 @@ namespace Graduation_Project.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("users");
+                });
+
+            modelBuilder.Entity("HospitalHospitalEquipment", b =>
+                {
+                    b.Property<int>("EquipmentsHospitalEquipmentId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("HospitalsHospitalId")
+                        .HasColumnType("int");
+
+                    b.HasKey("EquipmentsHospitalEquipmentId", "HospitalsHospitalId");
+
+                    b.HasIndex("HospitalsHospitalId");
+
+                    b.ToTable("HospitalHospitalEquipment");
                 });
 
             modelBuilder.Entity("Graduation_Project.Models.Booking", b =>
@@ -387,6 +678,17 @@ namespace Graduation_Project.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Graduation_Project.Models.DeliveryAddress", b =>
+                {
+                    b.HasOne("Graduation_Project.Models.Rental", "Rental")
+                        .WithOne("DeliveryAddress")
+                        .HasForeignKey("Graduation_Project.Models.DeliveryAddress", "RentalId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Rental");
+                });
+
             modelBuilder.Entity("Graduation_Project.Models.Department", b =>
                 {
                     b.HasOne("Graduation_Project.Models.Hospital", "Hospital")
@@ -406,13 +708,50 @@ namespace Graduation_Project.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Graduation_Project.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
                     b.Navigation("Department");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Graduation_Project.Models.Equipment", b =>
+                {
+                    b.HasOne("Graduation_Project.Models.User", "Owner")
+                        .WithMany()
+                        .HasForeignKey("OwnerId");
+
+                    b.Navigation("Owner");
+                });
+
+            modelBuilder.Entity("Graduation_Project.Models.HospitalReview", b =>
+                {
+                    b.HasOne("Graduation_Project.Models.Hospital", "Hospital")
+                        .WithMany("Reviews")
+                        .HasForeignKey("HospitalId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Hospital");
                 });
 
             modelBuilder.Entity("Graduation_Project.Models.Notification", b =>
                 {
                     b.HasOne("Graduation_Project.Models.User", "User")
                         .WithMany("Notifications")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Graduation_Project.Models.NotificationSettings", b =>
+                {
+                    b.HasOne("Graduation_Project.Models.User", "User")
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -454,10 +793,35 @@ namespace Graduation_Project.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Graduation_Project.Models.Review", b =>
+                {
+                    b.HasOne("Graduation_Project.Models.Equipment", "Equipment")
+                        .WithMany()
+                        .HasForeignKey("EquipmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Equipment");
+                });
+
+            modelBuilder.Entity("HospitalHospitalEquipment", b =>
+                {
+                    b.HasOne("Graduation_Project.Models.HospitalEquipment", null)
+                        .WithMany()
+                        .HasForeignKey("EquipmentsHospitalEquipmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Graduation_Project.Models.Hospital", null)
+                        .WithMany()
+                        .HasForeignKey("HospitalsHospitalId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Graduation_Project.Models.Booking", b =>
                 {
-                    b.Navigation("Payment")
-                        .IsRequired();
+                    b.Navigation("Payment");
                 });
 
             modelBuilder.Entity("Graduation_Project.Models.Department", b =>
@@ -478,10 +842,15 @@ namespace Graduation_Project.Migrations
             modelBuilder.Entity("Graduation_Project.Models.Hospital", b =>
                 {
                     b.Navigation("Departments");
+
+                    b.Navigation("Reviews");
                 });
 
             modelBuilder.Entity("Graduation_Project.Models.Rental", b =>
                 {
+                    b.Navigation("DeliveryAddress")
+                        .IsRequired();
+
                     b.Navigation("Payment")
                         .IsRequired();
                 });

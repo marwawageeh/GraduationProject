@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>E:\Dlabate\PublishGraduationProject</_PublishTargetUrl>
+    <History>True|2026-03-01T18:05:47.2193179Z;True|2026-03-01T19:51:02.7923894+02:00;True|2026-03-01T19:43:28.4190778+02:00;True|2026-02-08T19:32:06.4245305+02:00;True|2026-02-08T19:31:49.0774973+02:00;True|2026-02-05T17:00:49.1382491+02:00;True|2026-01-28T20:53:59.6572124+02:00;True|2026-01-28T20:53:41.4345827+02:00;True|2025-12-03T17:50:34.8026907+02:00;True|2025-12-01T22:17:28.3185403+02:00;True|2025-12-01T22:15:50.4740845+02:00;True|2025-12-01T21:10:29.4985576+02:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

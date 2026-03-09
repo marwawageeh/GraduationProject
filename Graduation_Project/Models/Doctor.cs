@@ -15,7 +15,16 @@ namespace Graduation_Project.Models
         public int ExperienceYears { get; set; }
         public double Rating { get; set; }
 
-        [ForeignKey("Department")]
+		public string? ImageURL { get; set; }   
+
+		public TimeSpan StartTime { get; set; } 
+		public TimeSpan EndTime { get; set; }
+		public decimal ConsultationPrice { get; set; }
+
+		public int? UserId { get; set; }
+		public User? User { get; set; }
+
+		[ForeignKey("Department")]
         public int DepartmentId { get; set; }
         public Department Department { get; set; }
 

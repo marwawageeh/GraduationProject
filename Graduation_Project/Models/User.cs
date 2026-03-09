@@ -17,10 +17,16 @@ namespace Graduation_Project.Models
         public string PasswordHash { get; set; }
 
         public string? Role { get; set; } // Admin, Doctor, Patient
-        public string Phone { get; set; }
+        public string? Phone { get; set; }
         public string? Location { get; set; }
+		public DateTime? DateOfBirth { get; set; }
+		public string? Gender { get; set; }
+		public string? ImageUrl { get; set; }
+		//public string? Address { get; set; }
 
-        public ICollection<Booking> Bookings { get; set; }
+		public bool IsBlocked { get; set; } = false;
+
+		public ICollection<Booking> Bookings { get; set; }
         public ICollection<Rental> Rentals { get; set; }
         public ICollection<ChatHistory> ChatHistories { get; set; }
         public ICollection<Notification> Notifications { get; set; }

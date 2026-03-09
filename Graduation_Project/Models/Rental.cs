@@ -22,8 +22,15 @@ namespace Graduation_Project.Models
 
         [Precision(18, 2)]
         public decimal TotalPrice { get; set; }
-        public string Status { get; set; }
+        public string Status { get; set; } = "PendingPayment";
+		public bool EndingSoonNotified { get; set; } = false;
 
-        public Payment Payment { get; set; }
-    }
+		public DateTime? PickupRequestedAt { get; set; }
+
+		public Payment Payment { get; set; }
+		public string? PaymentIntentId { get; set; }
+		public DeliveryAddress DeliveryAddress { get; set; }
+
+
+	}
 }
