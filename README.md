@@ -1,13 +1,35 @@
-# Intelligent Medical Recommendation and Equipment Rental System
+# 🏥 Intelligent Medical Recommendation and Equipment Rental System
 
-## 👩‍💻 Project Team Member
+An intelligent healthcare platform that helps users find suitable hospitals and medical services based on their needs and location, while also providing medical equipment rental services.
 
-# **HADEER BASIONY ALI ATYA**
-# Marwa Wageeh Farraj
+The system combines **hospital recommendation, advanced search and filtering, medical equipment rental, online payment, email notifications, AI-powered chatbot functionality, and scalable backend APIs** into one integrated healthcare platform.
 
-**Information Systems — Faculty of Computers and Information, Tanta University**
+---
 
-Hadeer Basiony Ali Atya was a member of the graduation project team and contributed to the development and implementation of the system. She worked collaboratively with the project team on the system's backend development, database-related tasks, and overall project implementation.
+## 🎓 Graduation Project
+
+**Faculty of Computers and Information — Tanta University**  
+**Major: Information Systems**
+
+### 👩‍💻 My Role
+
+**Team Leader | Backend Developer | AI Developer**
+
+I was the **Team Leader** of the graduation project team and contributed directly to the development and implementation of the system.
+
+My main responsibilities included:
+
+- Leading and coordinating the project team.
+- Developing the backend using **C# and ASP.NET Core Web API**.
+- Working with **SQL Server, Entity Framework, and LINQ**.
+- Developing and testing backend APIs.
+- Working on the **AI-powered features** of the system.
+- Contributing to the intelligent hospital recommendation functionality.
+- Working on the **AI-powered chatbot** for symptom-based department recommendations.
+- Contributing to intelligent search and filtering.
+- Integrating different system components.
+- Contributing to **Stripe payment integration**.
+- Participating in testing, debugging, and final system integration.
 
 ---
 
@@ -15,44 +37,48 @@ Hadeer Basiony Ali Atya was a member of the graduation project team and contribu
 
 The **Intelligent Medical Recommendation and Equipment Rental System** is an intelligent healthcare platform designed to help users find suitable hospitals and medical services based on their needs and location.
 
-The system combines healthcare recommendations with medical equipment rental services, online payment integration, email notifications, and an AI-powered chatbot for symptom-based department recommendations.
+The system combines healthcare recommendations with medical equipment rental services, online payment integration, email notifications, cloud-based image storage, and an AI-powered chatbot.
 
 ---
 
 ## 🎯 Main Features
 
-* 🏥 **Intelligent Hospital Recommendation**
+### 🏥 Intelligent Hospital Recommendation
 
-  * Recommends suitable hospitals based on the user's needs and location.
-  * Provides search and filtering capabilities.
+- Recommends suitable hospitals based on the user's needs and location.
+- Provides search and filtering capabilities.
 
-* 🔎 **Advanced Search & Filtering**
+### 🔎 Advanced Search & Filtering
 
-  * Helps users find suitable hospitals and medical services efficiently.
+- Helps users find suitable hospitals and medical services efficiently.
+- Provides filtering based on available system information.
 
-* 🩺 **Medical Equipment Rental**
+### 🩺 Medical Equipment Rental
 
-  * Allows users to browse and rent available medical equipment.
+- Allows users to browse available medical equipment.
+- Supports medical equipment rental operations.
 
-* 💳 **Online Payment**
+### 💳 Online Payment
 
-  * Integrated online payment functionality using Stripe.
+- Integrated online payment functionality using **Stripe**.
 
-* 🤖 **AI-Powered Chatbot**
+### 🤖 AI-Powered Chatbot
 
-  * Provides symptom-based recommendations for the appropriate medical department.
+- Provides symptom-based recommendations.
+- Helps users identify the appropriate medical department based on their symptoms.
 
-* 📧 **Email Notifications**
+### 📧 Email Notifications
 
-  * Sends notifications related to system activities and user interactions.
+- Sends notifications related to system activities and user interactions.
 
-* 🖼️ **Cloud-Based Image Storage**
+### 🖼️ Cloud-Based Image Storage
 
-  * Supports scalable storage and management of system images.
+- Supports scalable storage and management of system images using **Cloudinary**.
 
-* 🔐 **Backend APIs**
+### 🔐 Backend APIs
 
-  * Provides structured and scalable APIs for communication between system components.
+- Provides structured and scalable APIs for communication between system components.
+- Handles user interactions, hospital recommendations, equipment management, rental operations, payment-related functionality, chatbot requests, and database operations.
 
 ---
 
@@ -60,28 +86,34 @@ The system combines healthcare recommendations with medical equipment rental ser
 
 ### Backend
 
-* C#
-* ASP.NET Core Web API
-* Entity Framework
-* LINQ
+- C#
+- ASP.NET Core Web API
+- Entity Framework
+- LINQ
 
 ### Database
 
-* Microsoft SQL Server
-
-### Payment Integration
-
-* Stripe
+- Microsoft SQL Server
 
 ### AI
 
-* AI Integration
-* Intelligent Search & Recommendation
+- AI Integration
+- Intelligent Search & Recommendation
+- AI-Powered Chatbot
+
+### Payment Integration
+
+- Stripe
+
+### Cloud Services
+
+- Cloudinary
 
 ### Development Tools
 
-* Visual Studio
-* Git & GitHub
+- Visual Studio
+- Git
+- GitHub
 
 ---
 
@@ -91,39 +123,61 @@ The system was designed using a structured backend architecture to provide maint
 
 The backend APIs handle:
 
-* User interactions
-* Hospital recommendations
-* Medical equipment management
-* Rental operations
-* Payment processing
-* Chatbot requests
-* Database operations
-* Image management
+- User interactions
+- Hospital recommendations
+- Search and filtering
+- Medical equipment management
+- Rental operations
+- Payment processing
+- Chatbot requests
+- Database operations
+- Image management
+- API communication
 
 ---
 
-## 👩‍💻 Team Contribution
+## 👩‍💻 Team Leadership & Contribution
 
-### **Hadeer Basiony Ali Atya**
+As the **Team Leader**, I was responsible for coordinating the project team and contributing directly to the technical implementation of the system.
 
-Hadeer contributed to the development of the graduation project as a member of the project team.
+### 👑 Leadership
 
-Her contribution included participation in:
+- Led the project team throughout the development and implementation phases.
+- Coordinated tasks and followed up on project progress.
+- Participated in integrating the different parts of the system.
 
-* Backend development using **C# and ASP.NET Core Web API**
-* Database-related implementation using **SQL Server and Entity Framework**
-* Development and integration of system functionalities
-* API development and testing
-* Collaboration with the project team throughout the implementation and integration phases
+### ⚙️ Backend Development
 
-The project was developed collaboratively by the team using a shared development environment.
+- Developed backend functionality using **C# and ASP.NET Core Web API**.
+- Implemented APIs and database-related functionality.
+- Worked with **SQL Server, Entity Framework, and LINQ**.
+- Participated in API testing and debugging.
+
+### 🤖 AI & Intelligent Features
+
+- Worked on the AI-related components of the project.
+- Contributed to the intelligent hospital recommendation functionality.
+- Worked on the AI-powered chatbot for symptom-based department recommendations.
+- Contributed to intelligent search and filtering.
+
+### 🔗 System Integration
+
+- Integrated backend functionality with other system components.
+- Worked on payment integration using **Stripe**.
+- Contributed to email notification and image management functionality.
+- Participated in final system testing and integration.
 
 ---
 
 ## 🚀 Project Demo
 
-**Swagger API Documentation:**
-http://graduationproject.somee.com/swagger/index.html
+### 🔹 Backend API — Swagger
+
+[Swagger API Documentation](http://graduationproject.somee.com/swagger/index.html)
+
+### 🔹 Frontend Demo
+
+[Frontend Demo](https://youtu.be/0Cm7EMQnQ1Q)
 
 ---
 
@@ -133,12 +187,30 @@ This repository contains the source code and implementation of the **Intelligent
 
 ---
 
-## 🎓 Academic Project
+## 🎓 Academic Information
 
-**Graduation Project — Faculty of Computers and Information**
-**Tanta University**
+**Graduation Project**  
+**Faculty of Computers and Information — Tanta University**  
 **Major: Information Systems**
 
 ### Project Title
 
 **Intelligent Medical Recommendation and Equipment Rental System**
+
+---
+
+## ⭐ Project Highlights
+
+- Full-stack healthcare platform
+- ASP.NET Core Web API backend
+- SQL Server database
+- Entity Framework & LINQ
+- AI-powered chatbot
+- Intelligent hospital recommendation
+- Advanced search and filtering
+- Medical equipment rental
+- Stripe payment integration
+- Cloud-based image storage
+- Email notifications
+- RESTful backend APIs
+- Team leadership and project coordination
